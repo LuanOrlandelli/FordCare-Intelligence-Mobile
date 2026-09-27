@@ -1,0 +1,45 @@
+# ==========================================================
+# FORDCARE INTELLIGENCE
+# Docker Build Context Security
+# ==========================================================
+
+# Git
+.git
+.gitignore
+.github
+
+# IDE
+.idea
+.vscode
+*.iml
+
+# Build
+target
+build
+out
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Certificates and private keys
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.pem
+*.key
+*.crt
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

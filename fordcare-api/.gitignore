@@ -1,0 +1,43 @@
+# ==========================================================
+# FORDCARE INTELLIGENCE
+# Git Security
+# ==========================================================
+
+# Build
+target/
+build/
+out/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Environment variables / secrets
+.env
+.env.local
+.env.*.local
+
+# Certificates and private keys
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database backups
+backups/
+*.dump
