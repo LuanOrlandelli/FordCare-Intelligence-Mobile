@@ -24,6 +24,9 @@
       [
         "expo-splash-screen",
         {
+          "image": "./node_modules/expo-router/assets/logotype.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
