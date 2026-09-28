@@ -12,6 +12,10 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://fordcare-intelligence-mobile.onrender.com",
+        "EAS_BUILD_DISABLE_NPM_CACHE": "1"
       }
     },
     "production": {
