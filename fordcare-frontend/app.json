@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "fiap-mdi-sprint-FordCareIntelligence",
+    "name": "FordCare Intelligence",
     "slug": "fiap-mdi-sprint-FordCareIntelligence",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,24 +10,20 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.luanorlandelli.fiapmdisprintFordCareIntelligence",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE"
       },
-      "predictiveBackGestureEnabled": false,
-      "package": "com.luanorlandelli.fiapmdisprintFordCareIntelligence"
+      "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
@@ -43,12 +39,6 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "324847b2-c1b7-42b7-9cc4-66c9f9cf3947"
-      }
     }
   }
 }
