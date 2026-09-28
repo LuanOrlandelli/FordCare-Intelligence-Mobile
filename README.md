@@ -1,395 +1,187 @@
 # FordCare Intelligence
 
-> Challenge Ford 2026 — FIAP  
-> Solução digital voltada ao pós-venda, retenção e relacionamento com clientes Ford.
+## Sprint 3 — Mobile Development and IoT
 
-## Sobre o projeto
+**FIAP — Engenharia de Software**
 
-O **FordCare Intelligence** é uma solução desenvolvida para o Challenge 2026 da FIAP em parceria com a Ford.
+### Integrantes
 
-O projeto integra uma aplicação mobile, uma API REST, banco de dados, autenticação e autorização, recursos de segurança, observabilidade e automação de verificações por meio de uma pipeline DevSecOps.
-
-A proposta é apoiar as operações de pós-venda e retenção, permitindo o acompanhamento de clientes, leads, recomendações e informações relevantes para tomada de decisão.
-
----
-
-## Integrantes
-
-- **Luan Orlandelli Ramos** — RM 554747
-- **Jorge Luiz Silva Santos** — RM 554418
-- **Arthur Bobadilla Franchi** — RM 555056
+- Luan Orlandelli Ramos — RM 554747
+- Jorge Luiz Silva Santos — RM 554418
+- Arthur Bobadilla Franchi — RM 555056
 
 ---
 
-# Sprint 3 — Cybersecurity
+## Sobre o Projeto
 
-A Sprint 3 de Cybersecurity foi desenvolvida com foco na aplicação prática de segurança durante todo o ciclo de desenvolvimento do FordCare Intelligence.
+O **FordCare Intelligence** é uma solução desenvolvida para o Challenge FIAP em parceria com a Ford, com foco no relacionamento e na fidelização de clientes no pós-venda.
 
-Foram trabalhados quatro pilares principais:
+A aplicação centraliza informações importantes sobre clientes, leads e indicadores, permitindo o acompanhamento das ações de relacionamento e oferecendo suporte à tomada de decisão por meio de dados e inteligência artificial.
 
-1. **Pipeline DevSecOps Integrado**
-2. **Segurança em Código e Infraestrutura**
-3. **Observabilidade, Monitoramento e Resposta**
-4. **Compliance, Riscos e Segurança Contínua**
-
-## Documentação principal
-
-A documentação completa da entrega está disponível em:
-
-### [Cybersecurity — Sprint 3](./fordcare-api/docs/security/CYBERSECURITY_SPRINT3.md)
-
-O documento apresenta detalhadamente a arquitetura de segurança, implementações realizadas, pipeline DevSecOps, observabilidade, modelagem de ameaças, compliance, backup, recuperação e evidências da Sprint.
+Nesta Sprint 3, o foco foi consolidar a aplicação mobile como um produto final, garantindo funcionamento dos principais fluxos, integração com a API, identidade visual consistente e geração do aplicativo Android em formato APK.
 
 ---
 
-# Arquitetura
+## Objetivo da Aplicação Mobile
 
-A solução é composta principalmente por:
+O aplicativo FordCare Intelligence permite que o usuário acompanhe e gerencie informações relacionadas ao processo de pós-venda diretamente pelo dispositivo móvel.
 
-```text
-React Native / Expo
-        │
-        │ REST + JWT
-        ▼
-Spring Boot API
-        │
-        ├── Spring Security
-        ├── JWT + RBAC
-        ├── Rate Limiting
-        ├── Audit Logs
-        │
-        ▼
-   PostgreSQL
-        │
-        └── Flyway
-```
+Entre os principais recursos estão:
 
-A camada de observabilidade utiliza:
-
-```text
-Spring Boot API
-      │
-      ▼
-Actuator / Micrometer
-      │
-      ▼
-Prometheus
-      │
-      ▼
-Grafana
-```
+- Autenticação de usuários;
+- Dashboard com indicadores;
+- Consulta de clientes;
+- Visualização dos detalhes de clientes;
+- Gerenciamento de leads;
+- Cadastro de novos leads;
+- Recursos relacionados à IA FordCare;
+- Integração com a API do FordCare Intelligence;
+- Navegação entre as funcionalidades através do Expo Router.
 
 ---
 
-# Tecnologias
+## Principais Telas e Fluxos
 
-## Backend
+### Login
 
-- Java 21
-- Spring Boot
-- Spring Security
-- Spring Data JPA
-- Bean Validation
-- PostgreSQL
-- Flyway
-- JWT
-- Bucket4j
-- Spring Boot Actuator
-- Micrometer
-- Maven
+Tela responsável pela autenticação do usuário e acesso seguro à aplicação.
 
-## Frontend / Mobile
+### Dashboard
+
+Apresenta uma visão geral das informações e indicadores do FordCare Intelligence.
+
+### Clientes
+
+Permite visualizar os clientes cadastrados e acessar informações individuais de cada cliente.
+
+### Detalhes do Cliente
+
+Apresenta informações detalhadas do cliente selecionado, auxiliando no acompanhamento e nas ações de pós-venda.
+
+### Leads
+
+Permite consultar e acompanhar os leads existentes na plataforma.
+
+### Novo Lead
+
+Possibilita o cadastro de novos leads diretamente pelo aplicativo.
+
+### IA FordCare
+
+Área destinada às funcionalidades inteligentes do FordCare Intelligence, apoiando a análise das informações disponíveis na plataforma.
+
+---
+
+## Tecnologias Utilizadas
+
+### Mobile
 
 - React Native
-- Expo
+- Expo SDK 57
 - Expo Router
+- TypeScript
 - Axios
-- Expo SecureStore
+- React Native Chart Kit
 
-## Infraestrutura e Segurança
+### Backend
 
-- Docker
-- Docker Compose
-- GitHub Actions
-- Semgrep
-- OWASP Dependency-Check
-- Gitleaks
-- Trivy
-- Prometheus
-- Grafana
+- Java
+- Spring Boot
+- API REST
+- JWT
+- Controle de acesso baseado em permissões
+- Banco de dados
 
----
+### Infraestrutura
 
-# Segurança implementada
-
-Entre os principais controles implementados estão:
-
-- autenticação baseada em JWT;
-- controle de acesso baseado em papéis (RBAC);
-- perfis `ADMIN`, `ANALYST` e `DEALER_MANAGER`;
-- armazenamento seguro do token no mobile com Expo SecureStore;
-- BCrypt para proteção de senhas;
-- validação de entradas;
-- mitigação de SQL Injection por meio de persistência parametrizada;
-- rate limiting;
-- tratamento seguro de erros;
-- externalização de secrets;
-- proteção de arquivos `.env`;
-- auditoria de eventos de segurança;
-- anonimização de clientes;
-- monitoramento e métricas;
-- alertas;
-- análise de vulnerabilidades;
-- backup e recuperação;
-- Threat Modeling utilizando STRIDE.
+- Render — hospedagem da API
+- Expo EAS Build — geração do APK Android
+- GitHub — versionamento do projeto
 
 ---
 
-# Pipeline DevSecOps
+## Arquitetura
 
-O projeto possui pipeline automatizada utilizando **GitHub Actions**.
-
-Fluxo principal:
+A solução utiliza uma arquitetura baseada na comunicação entre a aplicação mobile e uma API REST.
 
 ```text
-Código
-  │
-  ▼
-GitHub
-  │
-  ├── Build + Testes
-  ├── SAST — Semgrep
-  ├── SCA — OWASP Dependency-Check
-  ├── Secret Scanning — Gitleaks
-  └── Docker Build
-           │
-           ▼
-      Trivy Scan
-           │
-           ▼
-      Security Gate
-```
-
-Na validação final da Sprint, os jobs obrigatórios apresentaram:
-
-```text
-Build e Testes                    PASS
-SAST — Semgrep                    PASS
-SCA — OWASP Dependency-Check      PASS
-Secret Scanning — Gitleaks        PASS
-Container Security — Trivy        PASS
-Security Gate                     PASS
+┌──────────────────────────┐
+│   FordCare Intelligence  │
+│      Mobile App          │
+│   React Native + Expo    │
+└─────────────┬────────────┘
+              │
+              │ HTTPS / REST
+              ▼
+┌──────────────────────────┐
+│      FordCare API        │
+│      Spring Boot         │
+│      JWT / RBAC          │
+└─────────────┬────────────┘
+              │
+              ▼
+┌──────────────────────────┐
+│      Banco de Dados      │
+└──────────────────────────┘
 ```
 
 ---
 
-# Testes e validações
+## Integração com a API
 
-O backend possui testes automatizados para funcionalidades e controles de segurança.
+A aplicação mobile está integrada à API publicada do FordCare Intelligence.
 
-Entre os cenários validados estão:
+A URL da API é configurada através da variável de ambiente:
 
-- inicialização do contexto Spring;
-- geração e validação de JWT;
-- acesso sem token retornando HTTP 401;
-- acesso autorizado por perfil;
-- acesso proibido retornando HTTP 403;
-- regras de autorização em endpoints protegidos.
-
-A execução validada do backend apresentou:
-
-```text
-16 testes
-0 failures
-0 errors
-BUILD SUCCESS
+```env
+EXPO_PUBLIC_API_URL=https://fordcare-intelligence-mobile.onrender.com
 ```
 
-O frontend também foi validado com:
-
-```text
-Expo Doctor
-18/18 checks passed
-No issues detected
-```
-
-e:
-
-```text
-ESLint
-0 errors
-```
+A aplicação utiliza Axios para realizar a comunicação entre o aplicativo e o backend.
 
 ---
 
-# Observabilidade
+## Organização do Projeto Mobile
 
-A aplicação possui uma camada de observabilidade baseada em:
-
-- Spring Boot Actuator;
-- Micrometer;
-- Prometheus;
-- Grafana.
-
-O Prometheus coleta métricas da API e o Grafana disponibiliza o dashboard:
-
-**FordCare Intelligence — Security & Observability**
-
-Durante os testes, o target da API foi validado como:
+A estrutura principal da aplicação segue o padrão de roteamento do Expo Router:
 
 ```text
-fordcare-api
-UP
-```
-
-e a consulta:
-
-```text
-up{job="fordcare-api"}
-```
-
-retornou:
-
-```text
-1
-```
-
-Também foram configurados alertas para:
-
-- indisponibilidade da API;
-- crescimento da taxa de erros HTTP 5xx;
-- consumo elevado de memória JVM.
-
----
-
-# Estrutura do repositório
-
-```text
-FordCareIntelligence/
+fordcare-frontend/
 │
-├── .github/
-│   └── workflows/
-│       └── security-ci.yml
+├── app/
+│   ├── _layout.tsx
+│   ├── index.tsx
+│   ├── login.tsx
+│   ├── dashboard.tsx
+│   ├── customers.tsx
+│   ├── customer-detail.tsx
+│   ├── leads.tsx
+│   ├── create-lead.tsx
+│   └── ai.tsx
 │
-├── fordcare-api/
-│   ├── docs/
-│   │   └── security/
-│   ├── monitoring/
-│   ├── scripts/
-│   ├── src/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   └── pom.xml
-│
-├── fordcare-frontend/
-│   ├── app/
-│   ├── assets/
-│   ├── src/
-│   ├── app.json
-│   └── package.json
-│
+├── assets/
+├── components/
+├── services/
+├── package.json
+├── app.json
+├── eas.json
 └── README.md
 ```
 
 ---
 
-# Documentação de Segurança
+## Configuração do Ambiente
 
-A documentação técnica de Cybersecurity está organizada em:
+### Pré-requisitos
 
-| Documento | Descrição |
-|---|---|
-| [CYBERSECURITY_SPRINT3.md](./fordcare-api/docs/security/CYBERSECURITY_SPRINT3.md) | Documento principal da Sprint 3 |
-| [SECURITY_CHECKLIST.md](./fordcare-api/docs/security/SECURITY_CHECKLIST.md) | Checklist dos controles implementados |
-| [THREAT_MODEL.md](./fordcare-api/docs/security/THREAT_MODEL.md) | Modelagem de ameaças utilizando STRIDE |
-| [COMPLIANCE.md](./fordcare-api/docs/security/COMPLIANCE.md) | OWASP ASVS, API Security, Mobile Security e LGPD |
-| [INCIDENT_RESPONSE.md](./fordcare-api/docs/security/INCIDENT_RESPONSE.md) | Processo de resposta a incidentes |
-| [BACKUP_RECOVERY.md](./fordcare-api/docs/security/BACKUP_RECOVERY.md) | Estratégia e testes de backup e recuperação |
-| [CONTINUOUS_SECURITY.md](./fordcare-api/docs/security/CONTINUOUS_SECURITY.md) | Estratégia de segurança contínua |
+Para executar o projeto em ambiente de desenvolvimento:
 
----
+- Node.js
+- npm
+- Expo
+- Git
 
-# Backup e recuperação
-
-O projeto possui scripts para backup e recuperação do PostgreSQL:
-
-```text
-fordcare-api/scripts/backup-db.ps1
-fordcare-api/scripts/restore-db.ps1
-```
-
-O processo foi validado por meio da criação de um backup real e posterior restauração em um banco isolado de teste.
-
-Como objetivos acadêmicos foram definidos:
-
-```text
-RPO: 24 horas
-RTO: 4 horas
-```
-
----
-
-# Compliance e gestão de riscos
-
-O projeto utiliza como referências:
-
-- OWASP ASVS;
-- OWASP API Security Top 10;
-- OWASP Mobile Top 10;
-- LGPD;
-- STRIDE para modelagem de ameaças.
-
-Os controles implementados apoiam a proteção dos dados tratados pelo sistema, mas não representam, isoladamente, uma declaração de conformidade jurídica integral com a LGPD.
-
----
-
-# Execução local
-
-## Backend
-
-O backend utiliza variáveis de ambiente para informações sensíveis.
-
-Exemplo de configuração disponível em:
-
-```text
-fordcare-api/.env.example
-```
-
-As principais configurações incluem:
-
-```text
-SPRING_DATASOURCE_URL
-SPRING_DATASOURCE_USERNAME
-SPRING_DATASOURCE_PASSWORD
-JWT_SECRET
-SSL_KEYSTORE_PASSWORD
-```
-
-As credenciais reais **não devem ser versionadas**.
-
-Para executar os testes:
-
-```bash
-cd fordcare-api
-./mvnw clean test
-```
-
-No Windows:
-
-```powershell
-cd fordcare-api
-.\mvnw.cmd clean test
-```
-
----
-
-## Frontend
-
-Entre na pasta:
-
-```bash
-cd fordcare-frontend
-```
+Clone o repositório e acesse a pasta do frontend.
 
 Instale as dependências:
 
@@ -397,52 +189,129 @@ Instale as dependências:
 npm install
 ```
 
-Crie o `.env` local a partir do `.env.example` e configure:
+Configure o arquivo `.env`:
 
 ```env
-EXPO_PUBLIC_API_URL=http://localhost:8080
+EXPO_PUBLIC_API_URL=https://fordcare-intelligence-mobile.onrender.com
 ```
 
-Execute:
+Execute o projeto:
 
 ```bash
 npx expo start
 ```
 
-Para abrir a versão web, pressione:
+---
 
-```text
-w
+## Build Android
+
+Para a Sprint 3 foi configurado o **Expo EAS Build** para geração da versão Android da aplicação.
+
+O perfil `preview` foi configurado para gerar diretamente um arquivo instalável no formato APK.
+
+Para gerar o build:
+
+```bash
+npx eas-cli@latest build --platform android --profile preview
 ```
 
-O arquivo `.env` real não deve ser enviado ao repositório.
+O processo realiza a preparação do projeto Android, compilação nativa e geração do artefato final.
 
 ---
 
-# Observações de produção
+## APK Final
 
-O ambiente atual foi desenvolvido e validado para fins acadêmicos.
+A versão final da aplicação foi compilada através do **Expo EAS Build**.
 
-Em um ambiente produtivo devem ser adotadas medidas adicionais, incluindo:
+Arquivo entregue:
 
-- HTTPS com certificado válido;
-- cofre de secrets;
-- rotação formal de credenciais;
-- proteção das interfaces Prometheus e Grafana;
-- restrição da porta de gerenciamento;
-- política formal de retenção de logs;
-- armazenamento externo e criptografado de backups;
-- políticas de rede e firewall;
-- monitoramento contínuo;
-- testes periódicos de recuperação.
+```text
+FordCare-Intelligence.apk
+```
+
+Formato:
+
+```text
+Android Package (.apk)
+```
+
+O APK é o artefato final instalável da aplicação Android e foi gerado a partir da versão final do projeto entregue nesta Sprint.
 
 ---
 
-# FordCare Intelligence
+## Validações Realizadas
 
-**FIAP — Engenharia de Software**  
-**Challenge Ford 2026**
+Antes da geração do APK final foram realizadas validações do projeto e das dependências.
 
-Desenvolvido por:
+O Expo Doctor apresentou:
 
-**Luan Orlandelli Ramos • Jorge Luiz Silva Santos • Arthur Bobadilla Franchi**
+```text
+21/21 checks passed.
+No issues detected.
+```
+
+Também foi validado o processo de bundle da aplicação para Android, garantindo a compilação do código JavaScript/TypeScript utilizado pelo aplicativo.
+
+O build Android final foi concluído através do Expo EAS Build, resultando na geração do arquivo:
+
+```text
+FordCare-Intelligence.apk
+```
+
+---
+
+## Requisitos da Sprint 3 Atendidos
+
+A entrega contempla os principais objetivos definidos para Mobile Development and IoT:
+
+- Aplicação mobile finalizada;
+- Principais fluxos do desafio Ford implementados;
+- Integração entre aplicação mobile e backend;
+- Identidade visual consistente;
+- Navegação organizada entre as telas;
+- Código estruturado e organizado;
+- README com documentação do projeto;
+- Configuração para geração do aplicativo Android;
+- Build realizado através do Expo EAS Build;
+- APK final gerado para Android.
+
+---
+
+## Segurança
+
+A aplicação utiliza mecanismos de segurança integrados ao backend do FordCare Intelligence, incluindo:
+
+- Autenticação baseada em JWT;
+- Controle de acesso;
+- Comunicação com a API através de HTTPS;
+- Proteção das rotas da aplicação;
+- Tratamento das requisições realizadas pelo aplicativo.
+
+Informações sensíveis e configurações de ambiente não são armazenadas diretamente no código-fonte da aplicação.
+
+---
+
+## Resultado Final
+
+A Sprint 3 consolida o **FordCare Intelligence Mobile** como parte da solução desenvolvida para o Challenge Ford.
+
+A aplicação conecta o ambiente mobile aos serviços do FordCare Intelligence, oferecendo acesso aos principais fluxos da solução e permitindo o acompanhamento de clientes, leads, indicadores e recursos inteligentes em uma interface preparada para dispositivos móveis.
+
+O projeto é entregue juntamente com o **APK Android final**, permitindo a instalação da aplicação em dispositivos compatíveis.
+
+---
+
+## Equipe
+
+**Luan Orlandelli Ramos**  
+RM 554747
+
+**Jorge Luiz Silva Santos**  
+RM 554418
+
+**Arthur Bobadilla Franchi**  
+RM 555056
+
+### FIAP — Engenharia de Software
+
+**Challenge Ford — FordCare Intelligence — 2026**
