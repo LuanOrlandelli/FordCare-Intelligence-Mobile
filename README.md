@@ -1,78 +1,77 @@
-# FordCare Intelligence
+# 🚗 FordCare Intelligence
 
 ## Sprint 3 — Mobile Development and IoT
 
-**FIAP — Engenharia de Software**
+Projeto desenvolvido para o **Challenge Ford 2026 — FIAP**, com foco em pós-venda, relacionamento com clientes e apoio à tomada de decisão.
 
-### Integrantes
+### 👥 Integrantes
 
-- Luan Orlandelli Ramos — RM 554747
-- Jorge Luiz Silva Santos — RM 554418
-- Arthur Bobadilla Franchi — RM 555056
-
----
-
-## Sobre o Projeto
-
-O **FordCare Intelligence** é uma solução desenvolvida para o Challenge FIAP em parceria com a Ford, com foco no relacionamento e na fidelização de clientes no pós-venda.
-
-A aplicação centraliza informações importantes sobre clientes, leads e indicadores, permitindo o acompanhamento das ações de relacionamento e oferecendo suporte à tomada de decisão por meio de dados e inteligência artificial.
-
-Nesta Sprint 3, o foco foi consolidar a aplicação mobile como um produto final, garantindo funcionamento dos principais fluxos, integração com a API, identidade visual consistente e geração do aplicativo Android em formato APK.
+- **Luan Orlandelli Ramos** — RM 554747
+- **Jorge Luiz Silva Santos** — RM 554418
+- **Arthur Bobadilla Franchi** — RM 555056
 
 ---
 
-## Objetivo da Aplicação Mobile
+## 📱 Sobre o FordCare Intelligence
 
-O aplicativo FordCare Intelligence permite que o usuário acompanhe e gerencie informações relacionadas ao processo de pós-venda diretamente pelo dispositivo móvel.
+O **FordCare Intelligence** é uma solução desenvolvida para apoiar a gestão do relacionamento com clientes no pós-venda Ford.
 
-Entre os principais recursos estão:
+A proposta é centralizar informações importantes sobre clientes, leads e indicadores em uma única solução, facilitando o acompanhamento das ações realizadas e utilizando dados e inteligência artificial como apoio à tomada de decisão.
 
-- Autenticação de usuários;
-- Dashboard com indicadores;
-- Consulta de clientes;
-- Visualização dos detalhes de clientes;
-- Gerenciamento de leads;
-- Cadastro de novos leads;
-- Recursos relacionados à IA FordCare;
-- Integração com a API do FordCare Intelligence;
-- Navegação entre as funcionalidades através do Expo Router.
+Nesta Sprint 3, o foco do desenvolvimento mobile foi consolidar a aplicação como um produto funcional, integrado ao backend e preparado para distribuição em dispositivos Android.
 
 ---
 
-## Principais Telas e Fluxos
+## 🎯 Objetivos da Sprint 3
 
-### Login
+A entrega foi desenvolvida considerando os principais objetivos propostos para **Mobile Development and IoT**:
 
-Tela responsável pela autenticação do usuário e acesso seguro à aplicação.
-
-### Dashboard
-
-Apresenta uma visão geral das informações e indicadores do FordCare Intelligence.
-
-### Clientes
-
-Permite visualizar os clientes cadastrados e acessar informações individuais de cada cliente.
-
-### Detalhes do Cliente
-
-Apresenta informações detalhadas do cliente selecionado, auxiliando no acompanhamento e nas ações de pós-venda.
-
-### Leads
-
-Permite consultar e acompanhar os leads existentes na plataforma.
-
-### Novo Lead
-
-Possibilita o cadastro de novos leads diretamente pelo aplicativo.
-
-### IA FordCare
-
-Área destinada às funcionalidades inteligentes do FordCare Intelligence, apoiando a análise das informações disponíveis na plataforma.
+- Entregar a versão final da aplicação mobile;
+- Disponibilizar os principais fluxos do FordCare Intelligence;
+- Consolidar a identidade visual da solução;
+- Manter consistência entre componentes, cores, tipografia e experiência do usuário;
+- Organizar e documentar o código do projeto;
+- Integrar a aplicação mobile ao backend;
+- Configurar o projeto para geração do aplicativo Android;
+- Gerar o build final em formato **APK utilizando Expo EAS Build**.
 
 ---
 
-## Tecnologias Utilizadas
+## ⚙️ Funcionalidades
+
+A aplicação mobile contempla os principais fluxos do FordCare Intelligence.
+
+### 🔐 Autenticação
+
+Permite o acesso do usuário à aplicação através do fluxo de login integrado ao backend.
+
+### 📊 Dashboard
+
+Apresenta uma visão geral das informações e indicadores relevantes da solução.
+
+### 👥 Clientes
+
+Permite consultar os clientes disponíveis na plataforma.
+
+### 🔎 Detalhes do Cliente
+
+Apresenta informações específicas do cliente selecionado para auxiliar no acompanhamento do relacionamento e pós-venda.
+
+### 📋 Leads
+
+Permite visualizar e acompanhar os leads registrados na plataforma.
+
+### ➕ Cadastro de Lead
+
+Disponibiliza um fluxo para criação de novos leads diretamente pelo aplicativo.
+
+### 🤖 IA FordCare
+
+Área dedicada aos recursos inteligentes do FordCare Intelligence, utilizando dados como apoio às análises da solução.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
 
 ### Mobile
 
@@ -89,61 +88,87 @@ Possibilita o cadastro de novos leads diretamente pelo aplicativo.
 - Spring Boot
 - API REST
 - JWT
-- Controle de acesso baseado em permissões
+- RBAC
 - Banco de dados
 
-### Infraestrutura
+### Infraestrutura e DevOps
 
-- Render — hospedagem da API
-- Expo EAS Build — geração do APK Android
-- GitHub — versionamento do projeto
+- Expo EAS Build
+- Render
+- Git
+- GitHub
+- Google Drive para disponibilização do APK final
 
 ---
 
-## Arquitetura
+## 🏗️ Arquitetura da Solução
 
-A solução utiliza uma arquitetura baseada na comunicação entre a aplicação mobile e uma API REST.
+A aplicação mobile se comunica com o backend através de uma API REST utilizando HTTPS.
 
 ```text
-┌──────────────────────────┐
-│   FordCare Intelligence  │
-│      Mobile App          │
-│   React Native + Expo    │
-└─────────────┬────────────┘
-              │
-              │ HTTPS / REST
-              ▼
-┌──────────────────────────┐
-│      FordCare API        │
-│      Spring Boot         │
-│      JWT / RBAC          │
-└─────────────┬────────────┘
-              │
-              ▼
-┌──────────────────────────┐
-│      Banco de Dados      │
-└──────────────────────────┘
+┌────────────────────────────┐
+│    FordCare Intelligence   │
+│         Mobile App         │
+│    React Native + Expo     │
+└──────────────┬─────────────┘
+               │
+               │ HTTPS / REST
+               ▼
+┌────────────────────────────┐
+│        FordCare API        │
+│       Spring Boot          │
+│       JWT / RBAC           │
+└──────────────┬─────────────┘
+               │
+               ▼
+┌────────────────────────────┐
+│       Banco de Dados       │
+└────────────────────────────┘
 ```
 
 ---
 
-## Integração com a API
+## 🌐 Integração com o Backend
 
 A aplicação mobile está integrada à API publicada do FordCare Intelligence.
 
-A URL da API é configurada através da variável de ambiente:
+A URL utilizada pela aplicação é:
+
+```text
+https://fordcare-intelligence-mobile.onrender.com
+```
+
+No ambiente de desenvolvimento, ela é configurada através da variável:
 
 ```env
 EXPO_PUBLIC_API_URL=https://fordcare-intelligence-mobile.onrender.com
 ```
 
-A aplicação utiliza Axios para realizar a comunicação entre o aplicativo e o backend.
+A comunicação entre o aplicativo e a API é realizada através do **Axios**.
+
+### ⚠️ Importante — Inicialização da API
+
+A API do FordCare Intelligence está hospedada no **Render**. Dependendo do estado do serviço no momento do teste, a primeira requisição pode levar mais tempo enquanto a instância da aplicação é inicializada.
+
+Caso o aplicativo demore para realizar o login ou carregar informações na primeira tentativa, recomendamos verificar primeiro se a API já está respondendo.
+
+Para isso, abra no navegador:
+
+**https://fordcare-intelligence-mobile.onrender.com**
+
+Se o navegador ainda estiver aguardando uma resposta, aguarde a inicialização do serviço.
+
+Quando o endereço retornar uma resposta do servidor, mesmo que seja uma resposta simples ou uma mensagem informando que não existe uma rota específica para `/`, isso indica que o servidor voltou a responder.
+
+Após isso, retorne ao aplicativo e tente novamente.
+
+> **Observação:** essa demora pode ocorrer principalmente no primeiro acesso após um período sem utilização. Depois que a API estiver ativa, as requisições seguintes tendem a responder normalmente.
 
 ---
 
-## Organização do Projeto Mobile
+## 📂 Estrutura Mobile
 
-A estrutura principal da aplicação segue o padrão de roteamento do Expo Router:
+A aplicação utiliza o **Expo Router** para organização das rotas e navegação.
 
 ```text
 fordcare-frontend/
@@ -162,40 +187,41 @@ fordcare-frontend/
 ├── assets/
 ├── components/
 ├── services/
-├── package.json
 ├── app.json
 ├── eas.json
+├── package.json
 └── README.md
 ```
 
 ---
 
-## Configuração do Ambiente
+## ▶️ Executando o Projeto
 
 ### Pré-requisitos
 
-Para executar o projeto em ambiente de desenvolvimento:
+Para executar o projeto em ambiente de desenvolvimento é necessário possuir:
 
 - Node.js
 - npm
-- Expo
 - Git
 
-Clone o repositório e acesse a pasta do frontend.
+### 1. Instalar as dependências
 
-Instale as dependências:
+Dentro da pasta do frontend:
 
 ```bash
 npm install
 ```
 
-Configure o arquivo `.env`:
+### 2. Configurar a API
+
+Crie ou configure o arquivo `.env`:
 
 ```env
 EXPO_PUBLIC_API_URL=https://fordcare-intelligence-mobile.onrender.com
 ```
 
-Execute o projeto:
+### 3. Iniciar a aplicação
 
 ```bash
 npx expo start
@@ -203,56 +229,60 @@ npx expo start
 
 ---
 
-## Build Android
+## 📦 Build Android — APK
 
-Para a Sprint 3 foi configurado o **Expo EAS Build** para geração da versão Android da aplicação.
+A versão final Android do **FordCare Intelligence** foi gerada utilizando o **Expo EAS Build**.
 
-O perfil `preview` foi configurado para gerar diretamente um arquivo instalável no formato APK.
+O projeto possui o perfil `preview` configurado no arquivo `eas.json` para geração do aplicativo no formato APK.
 
-Para gerar o build:
+Para realizar um novo build:
 
 ```bash
 npx eas-cli@latest build --platform android --profile preview
 ```
 
-O processo realiza a preparação do projeto Android, compilação nativa e geração do artefato final.
+O build final da Sprint 3 foi **concluído com sucesso**, resultando na geração do aplicativo Android em formato `.apk`.
+
+### 📲 Download do APK
+
+Devido ao tamanho do arquivo, o APK final não está armazenado diretamente neste repositório e também ultrapassa o limite de envio da plataforma utilizada para a entrega.
+
+O arquivo **FordCare-Intelligence.apk** está disponível através do Google Drive:
+
+👉 **[BAIXAR APK — FordCare Intelligence](https://drive.google.com/drive/folders/17PA50zWbjAYjHHYaZttvEttgOb_z91ED?usp=sharing)**
+
+> O link direciona para a pasta do Google Drive contendo o APK final da aplicação Android desenvolvido para a Sprint 3.
 
 ---
 
-## APK Final
+## ✅ Validações Realizadas
 
-A versão final da aplicação foi compilada através do **Expo EAS Build**.
+Durante a preparação da versão final foram realizadas validações da configuração do projeto e das dependências.
 
-Arquivo entregue:
+### Expo Doctor
 
-```text
-FordCare-Intelligence.apk
-```
-
-Formato:
-
-```text
-Android Package (.apk)
-```
-
-O APK é o artefato final instalável da aplicação Android e foi gerado a partir da versão final do projeto entregue nesta Sprint.
-
----
-
-## Validações Realizadas
-
-Antes da geração do APK final foram realizadas validações do projeto e das dependências.
-
-O Expo Doctor apresentou:
+O projeto foi validado através do Expo Doctor:
 
 ```text
 21/21 checks passed.
-No issues detected.
+No issues detected!
 ```
 
-Também foi validado o processo de bundle da aplicação para Android, garantindo a compilação do código JavaScript/TypeScript utilizado pelo aplicativo.
+### Bundle Android
 
-O build Android final foi concluído através do Expo EAS Build, resultando na geração do arquivo:
+Também foi validada a geração do bundle da aplicação para Android:
+
+```bash
+npx expo export --platform android
+```
+
+O processo de bundle foi concluído corretamente.
+
+### EAS Build
+
+O build final Android foi realizado através do **Expo EAS Build**.
+
+Como resultado, foi gerado com sucesso o arquivo instalável:
 
 ```text
 FordCare-Intelligence.apk
@@ -260,48 +290,62 @@ FordCare-Intelligence.apk
 
 ---
 
-## Requisitos da Sprint 3 Atendidos
-
-A entrega contempla os principais objetivos definidos para Mobile Development and IoT:
-
-- Aplicação mobile finalizada;
-- Principais fluxos do desafio Ford implementados;
-- Integração entre aplicação mobile e backend;
-- Identidade visual consistente;
-- Navegação organizada entre as telas;
-- Código estruturado e organizado;
-- README com documentação do projeto;
-- Configuração para geração do aplicativo Android;
-- Build realizado através do Expo EAS Build;
-- APK final gerado para Android.
-
----
-
-## Segurança
+## 🔒 Segurança
 
 A aplicação utiliza mecanismos de segurança integrados ao backend do FordCare Intelligence, incluindo:
 
 - Autenticação baseada em JWT;
-- Controle de acesso;
-- Comunicação com a API através de HTTPS;
-- Proteção das rotas da aplicação;
-- Tratamento das requisições realizadas pelo aplicativo.
-
-Informações sensíveis e configurações de ambiente não são armazenadas diretamente no código-fonte da aplicação.
-
----
-
-## Resultado Final
-
-A Sprint 3 consolida o **FordCare Intelligence Mobile** como parte da solução desenvolvida para o Challenge Ford.
-
-A aplicação conecta o ambiente mobile aos serviços do FordCare Intelligence, oferecendo acesso aos principais fluxos da solução e permitindo o acompanhamento de clientes, leads, indicadores e recursos inteligentes em uma interface preparada para dispositivos móveis.
-
-O projeto é entregue juntamente com o **APK Android final**, permitindo a instalação da aplicação em dispositivos compatíveis.
+- Controle de acesso baseado em permissões;
+- Comunicação através de HTTPS;
+- Proteção das rotas da API;
+- Validação das requisições;
+- Configuração da URL da API através de variável de ambiente.
 
 ---
 
-## Equipe
+## 📋 Atendimento aos Requisitos da Sprint 3
+
+| Requisito | Status |
+|---|---|
+| Aplicação mobile final | ✅ |
+| Fluxos do FordCare Intelligence | ✅ |
+| Identidade visual consolidada | ✅ |
+| Código organizado | ✅ |
+| README completo | ✅ |
+| Integração com backend | ✅ |
+| Configuração Android | ✅ |
+| Expo EAS Build | ✅ |
+| Build final em APK | ✅ |
+| APK disponibilizado para download | ✅ |
+
+---
+
+## 📲 APK Final
+
+O APK final da aplicação foi disponibilizado externamente devido ao tamanho do arquivo.
+
+👉 **[BAIXAR FORDCARE INTELLIGENCE — APK](https://drive.google.com/drive/folders/17PA50zWbjAYjHHYaZttvEttgOb_z91ED?usp=sharing)**
+
+**Arquivo:** `FordCare-Intelligence.apk`  
+**Plataforma:** Android  
+**Formato:** APK  
+**Build:** Expo EAS Build
+
+---
+
+## 🚀 Resultado Final
+
+A Sprint 3 consolida a aplicação mobile do **FordCare Intelligence** como parte da solução desenvolvida para o Challenge Ford.
+
+O aplicativo integra os principais fluxos da solução em uma experiência mobile, permitindo o acesso a clientes, leads, indicadores e recursos inteligentes conectados ao backend do FordCare Intelligence.
+
+Como resultado final da Sprint, a versão Android foi compilada através do **Expo EAS Build** e o APK final está disponível para download através do Google Drive.
+
+👉 **[Acessar o APK do FordCare Intelligence](https://drive.google.com/drive/folders/17PA50zWbjAYjHHYaZttvEttgOb_z91ED?usp=sharing)**
+
+---
+
+## 👨‍💻 Equipe
 
 **Luan Orlandelli Ramos**  
 RM 554747
@@ -312,6 +356,8 @@ RM 554418
 **Arthur Bobadilla Franchi**  
 RM 555056
 
+---
+
 ### FIAP — Engenharia de Software
 
-**Challenge Ford — FordCare Intelligence — 2026**
+**Challenge Ford 2026 — FordCare Intelligence**
